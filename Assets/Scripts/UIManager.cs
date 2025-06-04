@@ -12,12 +12,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button m_RandomizeBtn;
     [SerializeField] private Button m_SortBtn;
     [SerializeField] private Dropdown m_OrderDropDown;
+    [SerializeField] private Dropdown m_AlgorithmsDropDown;
 
     private bool m_IsSorted = false;
 
     private void Awake()
     {
         m_OrderDropDown.AddOptions(Enum.GetNames(typeof(OrderEnum)).ToList());
+        m_AlgorithmsDropDown.AddOptions(Enum.GetNames(typeof(AlgorithmsEnum)).ToList());
+        OnAlgorithmChanged();
     }
 
     public void OnRandomize()
@@ -38,6 +41,11 @@ public class UIManager : MonoBehaviour
             SetButtonsInteractable(true);
             m_IsSorted = true;
         });
+    }
+
+    public void OnAlgorithmChanged()
+    {
+        m_SortManager.AlgorithmChanged(m_AlgorithmsDropDown.value);
     }
 
     private void SetButtonsInteractable(bool value)
