@@ -6,11 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(BubbleSort))]
 [RequireComponent(typeof(SelectionSort))]
 [RequireComponent(typeof(InsertionSort))]
+[RequireComponent(typeof(ShellSort))]
 public class SortManager : MonoBehaviour
 {
     private BubbleSort m_BubbleSort;
     private SelectionSort m_SelectionSort;
     private InsertionSort m_InsertionSort;
+    private ShellSort m_ShellSort;
 
     private ISortAlgorithm m_CurrentSortAlgorithm;
     [SerializeField] private AlgorithmsEnum m_CurrentAlgorithmEnum;
@@ -20,6 +22,7 @@ public class SortManager : MonoBehaviour
         m_BubbleSort = GetComponent<BubbleSort>();
         m_SelectionSort = GetComponent<SelectionSort>();
         m_InsertionSort = GetComponent<InsertionSort>();
+        m_ShellSort = GetComponent<ShellSort>();
     }
 
     public void Sort(List<Bar> bars, float delayTime, OrderEnum order, Action onComplete)
@@ -42,6 +45,7 @@ public class SortManager : MonoBehaviour
                 m_CurrentSortAlgorithm = m_InsertionSort;
                 break;
             case AlgorithmsEnum.Shell:
+                m_CurrentSortAlgorithm = m_ShellSort;
                 break;
             case AlgorithmsEnum.Quick:
                 break;
