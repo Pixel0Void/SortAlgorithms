@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -9,8 +11,14 @@ public class UIManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private Button m_RandomizeBtn;
     [SerializeField] private Button m_SortBtn;
+    [SerializeField] private Dropdown m_OrderDropDown;
 
     private bool m_IsSorted = false;
+
+    private void Awake()
+    {
+        m_OrderDropDown.AddOptions(Enum.GetNames(typeof(OrderEnum)).ToList());
+    }
 
     public void OnRandomize()
     {
@@ -25,7 +33,7 @@ public class UIManager : MonoBehaviour
 
         SetButtonsInteractable(false);
 
-        m_SortManager.Sort(m_BarsManager.Bars, 0.01f, () =>
+        m_SortManager.Sort(m_BarsManager.Bars, 0.01f, (OrderEnum)m_OrderDropDown.value ,() =>
         {
             SetButtonsInteractable(true);
             m_IsSorted = true;

@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class BubbleSort : BaseSort, ISortAlgorithm
 {
-    public void Sort(List<Bar> bars, float delayTime, Action onComplete)
+    public void Sort(List<Bar> bars, float delayTime, OrderEnum order, Action onComplete)
     {
-        StartCoroutine(Sorting(bars, delayTime, onComplete));
+        StartCoroutine(Sorting(bars, delayTime, order, onComplete));
     }
 
-    private IEnumerator Sorting(List<Bar> bars, float delayTime, Action onComplete)
+    private IEnumerator Sorting(List<Bar> bars, float delayTime, OrderEnum order, Action onComplete)
     {
         int max = bars.Count;
         int temp = 0;
@@ -21,7 +21,7 @@ public class BubbleSort : BaseSort, ISortAlgorithm
             swapped = false;
             for (int j = 0; j < max - i - 1; j++)
             {
-                if (bars[j].Value < bars[j + 1].Value)
+                if (CompareTool.CompareValues(bars[j].Value, bars[j + 1].Value, order))
                 {
                     bars[j].SetColor(m_ModifiedColor);
                     bars[j + 1].SetColor(m_ModifiedColor);

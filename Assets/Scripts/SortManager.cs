@@ -13,8 +13,8 @@ public class SortManager : MonoBehaviour
         m_BubbleSort = GetComponent<BubbleSort>();
     }
 
-    public void Sort(List<Bar> bars, float delayTime, Action onComplete)
+    public void Sort(List<Bar> bars, float delayTime, OrderEnum order, Action onComplete)
     {
-        m_BubbleSort.Sort(bars, delayTime, onComplete);
+        m_BubbleSort.Sort(bars, delayTime, order,onComplete);
     }
 }
