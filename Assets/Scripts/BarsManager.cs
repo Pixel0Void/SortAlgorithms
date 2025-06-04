@@ -50,7 +50,7 @@ public class BarsManager : MonoBehaviour
         }
     }
 
-    private void SetValues()
+    public void SetValues()
     {
         int[] values = RandomGenerator.Generate(m_BarsCount, m_MinRange, m_MaxRange);
         for (int i = 0; i < m_BarsCount; i++)
