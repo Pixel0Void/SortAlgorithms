@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 112906481}
   - component: {fileID: 112906480}
   - component: {fileID: 112906482}
+  - component: {fileID: 112906483}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -213,6 +214,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ModifiedColor: {r: 0, g: 0.27121735, b: 1, a: 1}
+--- !u!114 &112906483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112906477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61654656c158ea449ba23247bb624c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ModifiedColor: {r: 0.5309359, g: 1, b: 0, a: 1}
 --- !u!1 &264453423
 GameObject:
   m_ObjectHideFlags: 0
