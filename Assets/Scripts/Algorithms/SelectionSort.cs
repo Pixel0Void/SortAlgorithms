@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class SelectionSort : BaseSort, ISortAlgorithm
 {
-    public void Sort(List<Bar> bars, float delayTime, OrderEnum order, Action onCompelete)
+    public void Sort(List<Bar> bars, float delayTime, OrderEnum order, Action onComplete)
     {
-        StartCoroutine(Sorting(bars, delayTime, order, onCompelete));
+        StartCoroutine(Sorting(bars, delayTime, order, onComplete));
     }
 
     private IEnumerator Sorting(List<Bar> bars, float delayTime, OrderEnum order, Action onComplete)
