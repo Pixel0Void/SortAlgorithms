@@ -8,6 +8,12 @@ public class BarsManager : MonoBehaviour
 
     [SerializeField] private float m_BarsOffset = 5f;
 
+    [SerializeField] private uint m_MinRange;
+    public uint MinRange => m_MinRange;
+
+    [SerializeField] private uint m_MaxRange;
+    public uint MaxRange => m_MaxRange;
+
     [SerializeField] private Bar m_BarPrefab;
     [SerializeField] private Transform m_BarsParent;
 
@@ -20,6 +26,7 @@ public class BarsManager : MonoBehaviour
     {
         CreateBars();
         SetPositions();
+        SetValues();
     }
 
     private void CreateBars()
@@ -40,6 +47,15 @@ public class BarsManager : MonoBehaviour
         {
             bar.GetComponent<RectTransform>().anchoredPosition = new Vector3(startPositionX, 0, 0);
             startPositionX += m_BarWidth + m_BarsOffset;
+        }
+    }
+
+    private void SetValues()
+    {
+        int[] values = RandomGenerator.Generate(m_BarsCount, m_MinRange, m_MaxRange);
+        for (int i = 0; i < m_BarsCount; i++)
+        {
+            m_Bars[i].Value = values[i];
         }
     }
 }

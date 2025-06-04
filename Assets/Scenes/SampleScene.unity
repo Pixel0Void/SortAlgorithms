@@ -152,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BarsCount: 50
   m_BarsOffset: 5
+  m_MinRange: 100
+  m_MaxRange: 1000
   m_BarPrefab: {fileID: 5922193698378137951, guid: 68874db98c2ceae46a300f9a73477f03,
     type: 3}
   m_BarsParent: {fileID: 1802087189}
